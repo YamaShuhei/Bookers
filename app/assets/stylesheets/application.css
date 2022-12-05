@@ -13,3 +13,149 @@
  *= require_tree .
  *= require_self
  */
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing:border-box;
+  text-decoration:none;
+  color:white;
+}
+
+body{
+  background-color:black;
+}
+
+header{
+  background-color:black;
+  width:60%;
+  margin: 0 auto;
+  text-align:center;
+  border:1px double;
+  border-top:none;
+  border-width:3px;
+}
+
+header .headline{
+  font-size:46px;
+}
+
+.errors{
+  border:1px solid white;
+  padding:10px;
+  display:inline-block;
+  margin-bottom:20px;
+}
+
+.errors li{
+  list-style: none;
+  color: red;
+}
+
+nav {
+  width:100%;
+  margin:0 auto;
+}
+
+.form-title{
+  width:30%;
+}
+
+.form-box{
+  width:100%;
+  margin-top:20px;
+  margin-bottom:20px;
+}
+
+.form-title, .form-body{
+  background-color:black;
+  border:2px solid gray;
+  color:white;
+  margin:7px 0;
+  padding:5px;
+}
+
+.form-body{
+  width: 100%;
+  height: 200px;
+}
+
+.button-box{
+  text-align: right;
+}
+
+.area-button {
+  text-align: right;
+}
+
+.save-button{
+  color:black;
+  width:100px;
+  right:0;
+  margin-top:10px;
+  padding:5px;
+}
+
+.button{
+  display: inline-block;
+  background-color:#EFEFEF;
+  width:80px;
+  height: 33.5px;
+  text-align: center;
+  border:1px solid black;
+  border-radius:2px;
+  line-height: 30px;
+  margin-top:10px;
+}
+
+.button p {
+  color:black;
+  font-size:14px;
+}
+
+
+.nav-list-item{
+  background-color:#3bd0fa;
+  list-style:none;
+  text-align: center;
+  display:inline-block;
+  color:white;
+  font-weight:bold;
+  font-size:18px;
+  margin:15px;
+  padding:8px;
+  border:4px solid #1dbce8;
+  border-radius: 10px;
+}
+
+main{
+  background-color:black;
+  width:60%;
+  margin:0 auto;
+  border:1px double;
+  border-width:3px;
+  border-top:none;
+  padding:20px;
+}
+
+.main-box > div{
+  background-color:#3bd0fa;
+
+}
+.book-box{
+ border:2px solid #1dbce8;
+ margin-bottom:15px;
+ border-radius:7px;
+ margin:20px 0;
+ padding:5px;
+}
+
+.book-title{
+  margin:10px 0;
+  font-weight:bolder;
+}
+
+.book-text{
+margin:5px 0;
+}

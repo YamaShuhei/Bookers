@@ -1,0 +1,20 @@
+<h1>編集画面</h1>
+
+<%= form_with model: @booker, url: booker_path(@booker.id) do |f| %>
+
+<div class ="form-box">
+  <h4>本のタイトル</h4>
+  <%= f.text_field :title, class: "form-title" %>
+  <h4>本の感想文</h4>
+  <%= f.text_area :body, class: "form-body" %>
+  <br>
+
+  <div class ="area-button">
+    <%= f.submit '変更の保存', class: "save-button" %>
+    <%= link_to booker_path(@booker.id), class: "button" do %>
+    <p>戻る</p>
+  <% end %>
+  </div>
+</div>
+
+<% end %>

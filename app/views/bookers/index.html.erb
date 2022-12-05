@@ -1,0 +1,14 @@
+
+<h1>登録された本</h1>
+
+<div class = "main-box">
+  <% @bookers.each do |list| %>
+    <div class="book-box">
+      <div class="book-title">タイトル<%= list.title %></div>
+      <div class="book-text"><%= list.body %></div>
+
+    </div>
+  <% end %>
+
+</div>
+
