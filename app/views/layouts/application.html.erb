@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bookers</title>
+    <title>Books</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -13,20 +13,7 @@
 
   <body>
 
-  <header>
-    <h1 class="headline">Books</h1>
-  <nav>
-    <ul class="nav-list">
-      <%= link_to '/', class: "nav-list-item" do %>
-      <li>トップページ</li>
-      <% end %>
 
-      <%= link_to bookers_path, class: "nav-list-item" do %>
-      <li>新規投稿&投稿一覧</li>
-      <% end %>
-    </ul>
-  </nav>
-    </header>
 
 
     <main>

@@ -3,32 +3,34 @@
     <%= flash[:notice] %>
   </div>
 <% end %>
-<h1>編集画面</h1>
+<h1>Edit Form</h1>
 
-<div class ="form-box2">
+<div class ="form-box">
   <% if @booker.errors.any? %>
   <div class = "errors">
-    <p>※空白があります。</p>
     <ul>
       <% @booker.errors.full_messages.each do |message| %>
-      <li><%= message %>（error!）</li>
+      <li><%= message %>（error）</li>
       <% end %>
     </ul>
   </div>
   <% end %>
 
-<%= form_with model: @booker, url: booker_path(@booker.id) do |f| %>
+<%= form_with model: @booker, url: book_path(@booker.id) do |f| %>
 
-  <h4>本のタイトル</h4>
+  <h4>Title</h4>
   <%= f.text_field :title, class: "form-title" %>
-  <h4>本の感想文</h4>
+  <h4>Body</h4>
   <%= f.text_area :body, class: "form-body" %>
   <br>
 
   <div class ="area-button">
-    <%= f.submit '変更の保存', class: "save-button" %>
-    <%= link_to booker_path(@booker.id), class: "button" do %>
-    <p>戻る</p>
+    <%= f.submit 'Update Book', class: "save-button" %>
+    <%= link_to book_path(@booker.id), class: "button" do %>
+    <p>Show</p>
+    <% end %>
+    <%= link_to books_path, class: "button" do %>
+    <p>Back</p>
     <% end %>
   </div>
 </div>

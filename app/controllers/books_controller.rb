@@ -1,14 +1,14 @@
-class BookersController < ApplicationController
+class BooksController < ApplicationController
   def new
   end
 
   def create
     @booker = Book.new(book_params)
     if @booker.save
-      redirect_to booker_path(@booker.id)
-      flash[:notice] = "投稿が成功しました"
+      redirect_to book_path(@booker.id)
+      flash[:notice] = "Post successfully"
     else
-      flash[:notice] = "投稿に失敗しました、もう一度お試しください。"
+      flash[:notice] = "Post error"
       @bookers = Book.all
       render :index
     end
@@ -17,8 +17,8 @@ class BookersController < ApplicationController
   def index
     @bookers = Book.all
     @booker = Book.new
-    @formtitle = "ここにタイトルを記入してください。"
-    @formbody = "ここに感想文を記入してください。"
+    @formtitle = "Enter the title here."
+    @formbody = "Please fill in your book report here."
   end
 
   def show
@@ -32,10 +32,10 @@ class BookersController < ApplicationController
   def update
     @booker = Book.find(params[:id])
     if @booker.update(book_params)
-      redirect_to booker_path(@booker.id)
-      flash[:notice] = "更新しました。"
+      redirect_to book_path(@booker.id)
+      flash[:notice] = "Update successfully"
     else
-      flash[:notice] = "更新に失敗しました、もう一度お試しください。"
+      flash[:notice] = "Update error"
       render :edit
     end
   end
@@ -43,8 +43,8 @@ class BookersController < ApplicationController
   def destroy
     book = Book.find(params[:id])
     book.destroy
-    redirect_to '/bookers'
-    flash[:notice] = "投稿を削除しました。"
+    redirect_to '/books'
+    flash[:notice] = "Post destroy."
   end
 
   private

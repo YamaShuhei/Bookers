@@ -1,0 +1,57 @@
+<% if flash[:notice] %>
+  <div class ="flash">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<h1>New Book</h1>
+
+<div class = "form-box">
+  <% if @booker.errors.any? %>
+    <div class = "errors">
+      <p>※Be sure to fill in both.</p>
+      <ul>
+        <% @booker.errors.full_messages.each do |message| %>
+        <li><%= message %>（error）</li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form_with model: @booker, url: '/books', method: :post do |f| %>
+
+    <h3>Title</h3>
+    <%= f.text_field :title, class: "form-title", placeholder: @formtitle %>
+
+    <h3>Body</h3>
+    <%= f.text_area :body, class: "form-body", placeholder: @formbody %>
+    <br>
+    <div class="button-box"><%= f.submit 'Create Book', class: "save-button" %></div>
+    <% end %>
+</div>
+
+<div class ="h1top">
+  <h1>Books</h1>
+</div>
+
+<div class = "main-box">
+  <table class="table">
+    <tr>
+      <th class ="th-title">Title</th>
+      <th class = "th-body">Body</th>
+      <th>Show/Edit/Destroy</th>
+    </tr>
+  </table>
+  <table class = "table">
+    <% @bookers.each do |book| %>
+        <tr class ="table-box">
+          <td class = "td-title"><%= book.title %></td>
+          <td class = "td-body"><%= book.body %></td>
+          <td class = "td-show">
+            <span class = "s1"><%= link_to book_path(book.id) do %>Show<% end %></span><span class="s1"><%= link_to edit_book_path(book.id) do %>Edit<% end %></span><span><%= link_to book_path(book.id), method: :delete, "data-confirm" => "削除してよろしいですか？" do %>Destroy<% end %></span>
+          </td>
+        </tr>
+    <% end %>
+  </table>
+</div>
+
