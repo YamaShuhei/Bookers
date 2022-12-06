@@ -1,8 +1,24 @@
+<% if flash[:notice] %>
+  <div class ="flash">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
 <h1>編集画面</h1>
+
+<div class ="form-box2">
+  <% if @booker.errors.any? %>
+  <div class = "errors">
+    <p>※空白があります。</p>
+    <ul>
+      <% @booker.errors.full_messages.each do |message| %>
+      <li><%= message %>（error!）</li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
 
 <%= form_with model: @booker, url: booker_path(@booker.id) do |f| %>
 
-<div class ="form-box">
   <h4>本のタイトル</h4>
   <%= f.text_field :title, class: "form-title" %>
   <h4>本の感想文</h4>
@@ -13,7 +29,7 @@
     <%= f.submit '変更の保存', class: "save-button" %>
     <%= link_to booker_path(@booker.id), class: "button" do %>
     <p>戻る</p>
-  <% end %>
+    <% end %>
   </div>
 </div>
 

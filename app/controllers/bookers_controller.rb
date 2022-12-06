@@ -1,49 +1,58 @@
 class BookersController < ApplicationController
   def new
-  @booker= List.new
-  @formtitle = "ここにタイトルを記入してください。"
-  @formbody = "ここに感想文を記入してください。"
   end
 
   def create
-    @booker = List.new(list_params)
+    @booker = Book.new(book_params)
     if @booker.save
       redirect_to booker_path(@booker.id)
+      flash[:notice] = "投稿が成功しました"
     else
-      render :new
+      flash[:notice] = "投稿に失敗しました、もう一度お試しください。"
+      @bookers = Book.all
+      render :index
     end
   end
 
   def index
-    @bookers = List.all
+    @bookers = Book.all
+    @booker = Book.new
+    @formtitle = "ここにタイトルを記入してください。"
+    @formbody = "ここに感想文を記入してください。"
   end
 
   def show
-    @booker = List.find(params[:id])
+    @booker = Book.find(params[:id])
   end
 
   def edit
-    @booker= List.find(params[:id])
+    @booker= Book.find(params[:id])
   end
 
   def update
-    list = List.find(params[:id])
-    list.update(list_params)
-    redirect_to booker_path(list.id)
+    @booker = Book.find(params[:id])
+    if @booker.update(book_params)
+      redirect_to booker_path(@booker.id)
+      flash[:notice] = "更新しました。"
+    else
+      flash[:notice] = "更新に失敗しました、もう一度お試しください。"
+      render :edit
+    end
   end
 
   def destroy
-    list = List.find(params[:id])
-    list.destroy
+    book = Book.find(params[:id])
+    book.destroy
     redirect_to '/bookers'
+    flash[:notice] = "投稿を削除しました。"
   end
 
   private
   #ストロングパラメータ
-  def list_params
-    #paramsはformから送られてくるデータ
+  def book_params
+    #paramsはbookから送られてくるデータ
     #requireは送られてきたデータの中からモデル名を指定
     #requireは絞りこんだデータの中から、カラムを指定
-    params.require(:list).permit(:title, :body)
+    params.require(:book).permit(:title, :body)
   end
 end

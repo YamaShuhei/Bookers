@@ -21,6 +21,26 @@
   box-sizing:border-box;
   text-decoration:none;
   color:white;
+  font-family: "M PLUS Rounded 1c";
+}
+
+.flash{
+  display:inline-block;
+  background-color:white;
+  color:red;
+  padding:10px 20px;
+  border-radius:10px;
+}
+
+.enter{
+  margin:50px 0;
+  text-align:center;
+
+}
+.enter-bookers{
+font-size:35px;
+color:blue;
+text-decoration:underline;
 }
 
 body{
@@ -29,16 +49,19 @@ body{
 
 header{
   background-color:black;
-  width:60%;
+  width:100%;
   margin: 0 auto;
   text-align:center;
-  border:1px double;
-  border-top:none;
+  border-bottom:1px double;
   border-width:3px;
 }
 
 header .headline{
   font-size:46px;
+}
+
+.icon{
+  font-size:20px;
 }
 
 .errors{
@@ -58,6 +81,12 @@ nav {
   margin:0 auto;
 }
 
+.h1top{
+  padding-top:20px;
+  padding-bottom:10px;
+    border-top:4px dotted white;
+}
+
 .form-title{
   width:30%;
 }
@@ -66,6 +95,7 @@ nav {
   width:100%;
   margin-top:20px;
   margin-bottom:20px;
+  padding-bottom:20px;
 }
 
 .form-title, .form-body{
@@ -91,10 +121,12 @@ nav {
 
 .save-button{
   color:black;
-  width:100px;
+  width:150px;
+  height:50px;
   right:0;
   margin-top:10px;
   padding:5px;
+  font-size:18px;
 }
 
 .button{
@@ -114,9 +146,12 @@ nav {
   font-size:14px;
 }
 
+.list-body{
+  background-color:#38a5fb;
+}
 
 .nav-list-item{
-  background-color:#3bd0fa;
+  background-color:#38a5fb;
   list-style:none;
   text-align: center;
   display:inline-block;
@@ -136,19 +171,67 @@ main{
   border:1px double;
   border-width:3px;
   border-top:none;
+  border-bottom:1px solid;
   padding:20px;
 }
 
 .main-box > div{
-  background-color:#3bd0fa;
-
+  background-color:#38a5fb;
 }
-.book-box{
- border:2px solid #1dbce8;
- margin-bottom:15px;
- border-radius:7px;
- margin:20px 0;
- padding:5px;
+
+.table {
+  border:1px solid white;
+  border-spacing:0 12px;
+  padding:6px;
+  width:100%;
+}
+
+th {
+  text-align:left;
+}
+
+td {
+  height:50px;
+  border:2px solid white;
+  background-color:#38a5fb;
+  padding-left:5px;
+}
+.th-title{
+  width:30%;
+}
+
+.th-body{
+  width:47%;
+}
+
+.td-title{
+  width:30%;
+  border-right:1px dotted white;
+}
+
+.td-body{
+  width:45%;
+  border-left:none;
+  border-right:none;
+}
+
+.td-show{
+  text-align:center;
+  text-decoration:underline;
+  font-size:18px;
+  padding-left:0;
+}
+
+span > a{
+  color:blue;
+}
+
+.s1{
+  margin-right:15px;
+}
+
+.table-main{
+  background-color:#38a5fb;
 }
 
 .book-title{

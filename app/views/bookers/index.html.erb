@@ -1,14 +1,61 @@
+<% if flash[:notice] %>
+  <div class ="flash">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+<h1>新しい本を登録します</h1>
 
+<div class = "form-box">
+  <% if @booker.errors.any? %>
+  <div class = "errors">
+    <p>※必ずどちらも入力してください。</p>
+    <ul>
+      <% @booker.errors.full_messages.each do |message| %>
+      <li><%= message %>（error!）</li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <%= form_with model: @booker, url: '/bookers', method: :post do |f| %>
+
+    <h3>本のタイトル</h3>
+    <%= f.text_field :title, class: "form-title", placeholder: @formtitle %>
+
+    <h3>本の感想文</h3>
+    <%= f.text_area :body, class: "form-body", placeholder: @formbody %>
+    <br>
+    <div class="button-box"><%= f.submit '本を登録', class: "save-button" %></div>
+    <% end %>
+</div>
+
+<div class ="h1top">
 <h1>登録された本</h1>
+</div>
 
 <div class = "main-box">
-  <% @bookers.each do |list| %>
-    <div class="book-box">
-      <div class="book-title">タイトル<%= list.title %></div>
-      <div class="book-text"><%= list.body %></div>
 
-    </div>
-  <% end %>
+  <table class="table">
+    <tr>
+      <th class ="th-title">本のタイトル</th>
+      <th class = "th-body">本の感想文</th>
+      <th>詳細＆削除</th>
+    </tr>
+  </table>
+  <table class = "table">
+    <% @bookers.each do |book| %>
+        <tr class ="table-box">
+          <td class = "td-title"><%= book.title %></td>
+          <td class = "td-body"><%= book.body %></td>
+          <td class = "td-show">
+            <span class = "s1"><%= link_to booker_path(book.id) do %>詳細へ<% end %></span><span><%= link_to booker_path(book.id), method: :delete, "data-confirm" => "削除してよろしいですか？" do %>投稿削除<% end %></span>
+            </td>
+        </tr>
+    <% end %>
+  </table>
+
+
+
 
 </div>
 
