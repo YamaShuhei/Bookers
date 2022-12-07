@@ -1,6 +1,4 @@
 class BooksController < ApplicationController
-  def new
-  end
 
   def create
     @booker = Book.new(book_params)
@@ -48,11 +46,7 @@ class BooksController < ApplicationController
   end
 
   private
-  #ストロングパラメータ
   def book_params
-    #paramsはbookから送られてくるデータ
-    #requireは送られてきたデータの中からモデル名を指定
-    #requireは絞りこんだデータの中から、カラムを指定
     params.require(:book).permit(:title, :body)
   end
 end
